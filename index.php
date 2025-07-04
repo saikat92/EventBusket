@@ -1,5 +1,77 @@
 <?php include 'includes/header.php'; ?>
 
+
+<div class="container-fluid px-0 mb-5">
+  <div class="search-section bg-white shadow-lg rounded-lg">
+    <div class="search-container">
+      <h3 class="search-title text-center mb-4">Find Your Perfect Event Space</h3>
+      <form class="search-form">
+        <div class="form-row align-items-center">
+          <!-- Location Field -->
+          <div class="col-md-3 mb-3 mb-md-0">
+            <div class="search-field">
+              <label for="location" class="search-label"><i class="fas fa-map-marker-alt mr-2"></i> City, Area or Property</label>
+              <input type="text" id="location" class="form-control search-input" placeholder="Where is your event?">
+            </div>
+          </div>
+          
+          <!-- Check-in Date -->
+          <div class="col-md-2 mb-3 mb-md-0">
+            <div class="search-field">
+              <label for="start-date" class="search-label"><i class="far fa-calendar-alt mr-2"></i> Check-in</label>
+              <input type="text" id="start-date" class="form-control search-input datepicker" placeholder="Select date" readonly>
+            </div>
+          </div>
+          
+          <!-- Check-out Date -->
+          <div class="col-md-2 mb-3 mb-md-0">
+            <div class="search-field">
+              <label for="end-date" class="search-label"><i class="far fa-calendar-alt mr-2"></i> Check-out</label>
+              <input type="text" id="end-date" class="form-control search-input datepicker" placeholder="Select date" readonly>
+            </div>
+          </div>
+          
+          <!-- Occasion Dropdown -->
+          <div class="col-md-2 mb-3 mb-md-0">
+            <div class="search-field">
+              <label for="occasion" class="search-label"><i class="fas fa-calendar-check mr-2"></i> Occasion</label>
+              <div class="dropdown">
+                <select name="occasionDropdown" id="occasionDropdown" class="form-control search-input text-left">
+                  <option value="na" disabled>Select occasion</option>
+                  <option class="dropdown-item" value="1">Wedding</option>
+                  <option class="dropdown-item" value="1">Corporate Event</option>
+                  <option class="dropdown-item" value="1">Birthday Party</option>
+                  <option class="dropdown-item" value="1">Conference</option>
+                  <option class="dropdown-item" value="1">Exhibition</option>
+                  <option class="dropdown-item" value="1">Social Gathering</option>
+                  <option class="dropdown-item" value="1">Other</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Rooms & Guests -->
+          <div class="col-md-2 mb-3 mb-md-0">
+            <div class="search-field">
+              <label for="guests" class="search-label"><i class="fas fa-user-friends mr-2"></i> No. Of Guests</label>
+              <input type="text" id="guests" class="form-control search-input" placeholder="e.g. 200">
+              <!-- Hidden dropdown content would go here -->
+            </div>
+          </div>
+          
+          <!-- Search Button -->
+          <div class="col-md-1">
+            <button type="submit" class="btn btn-success search-btn btn-block h-100 float-right">
+               <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
 <!-- Hero Section -->
 <div class="jumbotron jumbotron-fluid bg-primary text-white">
   <div class="container text-center">
@@ -9,7 +81,7 @@
 </div>
 
 <!-- Search Bar for Date and Location -->
-<div class="container mb-5 py-4 shadow rounded bg-light">
+<!-- <div class="container mb-5 py-4 shadow rounded bg-light">
   <h3 class="text-center mb-4">Find Your Perfect Event Space</h3>
   <form class="form-inline justify-content-center">
     <div class="form-group mx-2">
@@ -26,7 +98,8 @@
     </div>
     <button type="submit" class="btn btn-primary mx-2 shadow"><i class="fas fa-search mr-2"></i> Search</button>
   </form>
-</div>
+</div> -->
+
 
 <!-- Featured Events Carousel -->
 <div class="container mb-5">
@@ -81,7 +154,7 @@
           <i class="fas fa-university fa-3x mb-3 text-primary"></i>
           <h4 class="card-title">Banquet Halls</h4>
           <p class="card-text">Book the best venues for your weddings, parties, and corporate events with our verified partners.</p>
-          <a href="pages/services.php?category=banquet" class="btn btn-outline-primary stretched-link">Book Now</a>
+          <a href="services.php?category=banquet" class="btn btn-outline-primary stretched-link">Book Now</a>
         </div>
       </div>
     </div>
@@ -91,7 +164,7 @@
           <i class="fas fa-gem fa-3x mb-3 text-success"></i>
           <h4 class="card-title">Decoration</h4>
           <p class="card-text">Stunning themes and designs for your events by top decorators with customizable packages.</p>
-          <a href="pages/services.php?category=decoration" class="btn btn-outline-success stretched-link">View Options</a>
+          <a href="services.php?category=decoration" class="btn btn-outline-success stretched-link">View Options</a>
         </div>
       </div>
     </div>
@@ -101,7 +174,7 @@
           <i class="fas fa-utensils fa-3x mb-3 text-warning"></i>
           <h4 class="card-title">Catering</h4>
           <p class="card-text">Delicious cuisine and menu planning to suit every occasion and dietary requirement.</p>
-          <a href="pages/services.php?category=catering" class="btn btn-outline-warning stretched-link">Explore Menus</a>
+          <a href="services.php?category=catering" class="btn btn-outline-warning stretched-link">Explore Menus</a>
         </div>
       </div>
     </div>
@@ -111,7 +184,7 @@
           <i class="fas fa-lightbulb fa-3x mb-3 text-info"></i>
           <h4 class="card-title">Lighting</h4>
           <p class="card-text">Ambient and professional lighting solutions to transform your event space.</p>
-          <a href="pages/services.php?category=lighting" class="btn btn-outline-info stretched-link">View Packages</a>
+          <a href="services.php?category=lighting" class="btn btn-outline-info stretched-link">View Packages</a>
         </div>
       </div>
     </div>
@@ -121,7 +194,7 @@
           <i class="fas fa-praying-hands fa-3x mb-3 text-secondary"></i>
           <h4 class="card-title">Puja Materials</h4>
           <p class="card-text">Complete kits and individual items for all your spiritual and religious ceremonies.</p>
-          <a href="pages/services.php?category=puja" class="btn btn-outline-secondary stretched-link">Browse Items</a>
+          <a href="services.php?category=puja" class="btn btn-outline-secondary stretched-link">Browse Items</a>
         </div>
       </div>
     </div>
@@ -131,7 +204,7 @@
           <i class="fas fa-user-tie fa-3x mb-3 text-dark"></i>
           <h4 class="card-title">Priest Services</h4>
           <p class="card-text">Experienced priests for all traditional rituals, available in multiple languages.</p>
-          <a href="pages/services.php?category=priest" class="btn btn-outline-dark stretched-link">Book a Priest</a>
+          <a href="services.php?category=priest" class="btn btn-outline-dark stretched-link">Book a Priest</a>
         </div>
       </div>
     </div>
@@ -232,4 +305,157 @@
     background-position: center;
     border-radius: 0 !important;
   }
+
+  .search-section {
+    border: 1px solid #e0e0e0;
+    padding: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .search-title {
+    color: #2d3748;
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+  
+  .search-form {
+    background: #fff;
+  }
+  
+  .search-field {
+    position: relative;
+    height: 100%;
+  }
+  
+  .search-label {
+    display: block;
+    font-size: 0.8rem;
+    color: #4a5568;
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+  }
+  
+  .search-input {
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    background: #fff;
+    transition: all 0.3s ease;
+    height: 50px;
+  }
+  
+  .search-input:focus {
+    border-color: #4299e1;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+  }
+  
+  .search-btn {
+    background: linear-gradient(135deg,rgb(255, 116, 51) 0%,rgb(250, 79, 12) 100%);
+    border: none;
+    border-radius: 10px;
+    padding: 0.75rem;
+    font-weight: 500;
+    height: 50px;
+    margin-top: 1.45rem;
+    transition: all 0.3s ease;
+  }
+  
+  .search-btn:hover {
+    background: linear-gradient(135deg,rgb(206, 169, 49) 0%,rgb(168, 129, 2) 100%);
+    transform: translateY(-2px);
+  }
+  
+  @media (max-width: 768px) {
+    .search-section {
+      padding: 1.5rem;
+    }
+    
+    .search-btn {
+      margin-top: 0;
+    }
+  }
+
+  /* Style for the occasion dropdown container */
+.search-field .dropdown {
+  position: relative;
+  width: 100%;
+}
+
+/* Style for the select element */
+#occasionDropdown {
+  appearance: none; /* Remove default styling */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+  cursor: pointer;
+  padding-right: 2.5rem; /* Make room for the arrow */
+}
+
+/* Style for the dropdown options */
+#occasionDropdown option {
+  padding: 0.75rem 1rem;
+  background-color: white;
+  color: #2d3748;
+}
+
+/* Hover state for options (works in some browsers) */
+#occasionDropdown option:hover {
+  background-color: #f8f9fa;
+}
+
+/* Focus state */
+#occasionDropdown:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+}
+
+/* Disabled option styling */
+#occasionDropdown option[disabled] {
+  color: #a0aec0;
+}
+
+/* Dropdown item styling (for consistency with other dropdowns) */
+.dropdown-item {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #2d3748;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #occasionDropdown {
+    font-size: 0.9rem;
+    padding: 0.65rem 1rem;
+    padding-right: 2.5rem;
+  }
+}
+
 </style>
+
+<script>
+  $(document).ready(function(){
+    // Initialize datepicker
+    $('.datepicker').datepicker({
+      format: 'D, d M yyyy',
+      startDate: new Date(),
+      autoclose: true
+    });
+    
+    // Set default dates (today and tomorrow)
+    var today = new Date();
+    var tomorrow = new Date();
+    tomorrow.setDate(today.getDate() + 1);
+    
+    $('#start-date').datepicker('setDate', today);
+    $('#end-date').datepicker('setDate', tomorrow);
+    
+    // Guests dropdown functionality would go here
+  });
+</script>

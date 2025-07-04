@@ -42,7 +42,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
       <a class="navbar-brand" href="index.php">
-        <i class="fas fa-birthday-cake mr-2"></i>Event Shop
+        <i class="fas fa-birthday-cake mr-2"></i>Event Busket
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
         <span class="navbar-toggler-icon"></span>
@@ -65,7 +65,7 @@
           <li class="nav-item">
             <a class="nav-link" href="cart.php">
               <i class="fas fa-shopping-cart"></i>
-              <span class="badge badge-light ml-1">3</span>
+              <span class="badge badge-light ml-1">0</span>
             </a>
           </li>
           
@@ -81,14 +81,14 @@
                 <small>user@example.com</small>
               </div>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="pages/profile.php">
+              <a class="dropdown-item" href="profile.php">
                 <i class="fas fa-user-circle mr-2"></i>My Profile
               </a>
-              <a class="dropdown-item" href="pages/bookings.php">
-                <i class="fas fa-calendar-alt mr-2"></i>My Bookings
+              <a class="dropdown-item" href="orders.php">
+                <i class="fas fa-calendar-alt mr-2"></i>My Orders
               </a>
               <a class="dropdown-item" href="pages/settings.php">
-                <i class="fas fa-cog mr-2"></i>Settings
+                <i class="fas fa-cog mr-2"></i>Contact Us
               </a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="login.php">

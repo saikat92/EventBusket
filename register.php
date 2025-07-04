@@ -269,9 +269,13 @@
   }
 </style>
 
+
+<!-- Load jQuery first -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>
-    $(document).ready(function() {
+$(document).ready(function() {
     // Password strength indicator
     $('#password').on('input', function() {
         var password = $(this).val();
@@ -291,14 +295,14 @@
         $bar.css('width', strength + '%');
         
         if (strength < 40) {
-        $bar.removeClass('bg-success bg-warning').addClass('bg-danger');
-        $('#passwordStrengthText').text('Password strength: Weak').removeClass('text-success text-warning').addClass('text-danger');
+            $bar.removeClass('bg-success bg-warning').addClass('bg-danger');
+            $('#passwordStrengthText').text('Password strength: Weak').removeClass('text-success text-warning').addClass('text-danger');
         } else if (strength < 70) {
-        $bar.removeClass('bg-success bg-danger').addClass('bg-warning');
-        $('#passwordStrengthText').text('Password strength: Moderate').removeClass('text-success text-danger').addClass('text-warning');
+            $bar.removeClass('bg-success bg-danger').addClass('bg-warning');
+            $('#passwordStrengthText').text('Password strength: Moderate').removeClass('text-success text-danger').addClass('text-warning');
         } else {
-        $bar.removeClass('bg-warning bg-danger').addClass('bg-success');
-        $('#passwordStrengthText').text('Password strength: Strong').removeClass('text-warning text-danger').addClass('text-success');
+            $bar.removeClass('bg-warning bg-danger').addClass('bg-success');
+            $('#passwordStrengthText').text('Password strength: Strong').removeClass('text-warning text-danger').addClass('text-success');
         }
     });
     
@@ -310,14 +314,53 @@
         $(this).find('i').toggleClass('fa-eye fa-eye-slash');
     });
     
-    // Form navigation
-    $('#nextToStep2').click(function() {
-        if ($('#step1')[0].checkValidity()) {
-        $('#step1').hide();
-        $('#step2').show();
-        $('#regProgress').css('width', '66%');
+    // Form validation function
+    function validateStep1() {
+        var isValid = true;
+        
+        // Reset error states
+        $('.is-invalid').removeClass('is-invalid');
+        
+        // Validate First Name
+        if ($('#firstName').val().trim() === '') {
+            $('#firstName').addClass('is-invalid');
+            isValid = false;
+        }
+        
+        // Validate Last Name
+        if ($('#lastName').val().trim() === '') {
+            $('#lastName').addClass('is-invalid');
+            isValid = false;
+        }
+        
+        // Validate Email
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test($('#email').val().trim())) {
+            $('#email').addClass('is-invalid');
+            isValid = false;
+        }
+        
+        // Validate Mobile (Indian format: 10 digits starting with 6-9)
+        var mobileRegex = /^[6-9]\d{9}$/;
+        var cleanMobile = $('#mobile').val().replace(/\D/g, '');
+        if (!mobileRegex.test(cleanMobile)) {
+            $('#mobile').addClass('is-invalid');
+            isValid = false;
         } else {
-        $('#step1')[0].reportValidity();
+            // Format the mobile number if valid
+            $('#mobile').val(cleanMobile);
+        }
+        
+        return isValid;
+    }
+    
+    // Form navigation
+    $('#nextToStep2').click(function(e) {
+        e.preventDefault();
+        if (validateStep1()) {
+            $('#step1').hide();
+            $('#step2').show();
+            $('#regProgress').css('width', '66%');
         }
     });
     
@@ -340,9 +383,17 @@
         $('#regProgress').css('width', '33%');
     });
     
+    // Mobile number formatting
+    $('#mobile').on('input', function(e) {
+        // Remove all non-digit characters
+        var value = $(this).val().replace(/\D/g, '');
+        // Limit to 10 digits
+        value = value.substring(0, 10);
+        $(this).val(value);
+    });
+    
     // OTP Flow
     $('#sendOtpBtn').click(function() {
-        if ($('#step2')[0].checkValidity()) {
         // Verify passwords match
         if ($('#password').val() !== $('#confirmPassword').val()) {
             $('#confirmPassword').addClass('is-invalid');
@@ -373,9 +424,6 @@
             // Start OTP timer
             startOtpTimer();
         }, 1500);
-        } else {
-        $('#step2')[0].reportValidity();
-        }
     });
     
     // OTP Timer
@@ -384,23 +432,23 @@
         var seconds = 59;
         
         var timer = setInterval(function() {
-        if (seconds < 10) {
-            seconds = "0" + seconds;
-        }
-        
-        $('#otpTimer').text('Code expires in ' + minutes + ":" + seconds);
-        
-        if (seconds == 0) {
-            if (minutes == 0) {
-            clearInterval(timer);
-            $('#otpTimer').text('Code expired');
-            return;
+            if (seconds < 10) {
+                seconds = "0" + seconds;
             }
-            minutes--;
-            seconds = 59;
-        } else {
-            seconds--;
-        }
+            
+            $('#otpTimer').text('Code expires in ' + minutes + ":" + seconds);
+            
+            if (seconds == 0) {
+                if (minutes == 0) {
+                    clearInterval(timer);
+                    $('#otpTimer').text('Code expired');
+                    return;
+                }
+                minutes--;
+                seconds = 59;
+            } else {
+                seconds--;
+            }
         }, 1000);
     }
     
@@ -412,18 +460,17 @@
     
     // Form submission
     $('#registrationForm').submit(function(e) {
-        if (!this.checkValidity()) {
-        e.preventDefault();
-        e.stopPropagation();
+        if (!validateStep1()) {
+            e.preventDefault();
+            $('#step1').show();
+            $('#step2').hide();
+            $('#step3').hide();
+            $('#regProgress').css('width', '33%');
         }
-        $(this).addClass('was-validated');
     });
-    });
+});
 </script>
 
 
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
