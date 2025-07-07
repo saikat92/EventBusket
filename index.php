@@ -5,13 +5,13 @@
   <div class="search-section bg-white shadow-lg rounded-lg">
     <div class="search-container">
       <h3 class="search-title text-center mb-4">Find Your Perfect Event Space</h3>
-      <form class="search-form">
+      <form class="search-form" method="post" action="search.php">
         <div class="form-row align-items-center">
           <!-- Location Field -->
           <div class="col-md-3 mb-3 mb-md-0">
             <div class="search-field">
               <label for="location" class="search-label"><i class="fas fa-map-marker-alt mr-2"></i> City, Area or Property</label>
-              <input type="text" id="location" class="form-control search-input" placeholder="Where is your event?">
+              <input type="text" name="location_name" id="location" class="form-control search-input" placeholder="Where is your event?">
             </div>
           </div>
           
@@ -19,7 +19,7 @@
           <div class="col-md-2 mb-3 mb-md-0">
             <div class="search-field">
               <label for="start-date" class="search-label"><i class="far fa-calendar-alt mr-2"></i> Check-in</label>
-              <input type="text" id="start-date" class="form-control search-input datepicker" placeholder="Select date" readonly>
+              <input type="text" name="start_date" id="start-date" class="form-control search-input datepicker" placeholder="Select date" readonly>
             </div>
           </div>
           
@@ -27,7 +27,7 @@
           <div class="col-md-2 mb-3 mb-md-0">
             <div class="search-field">
               <label for="end-date" class="search-label"><i class="far fa-calendar-alt mr-2"></i> Check-out</label>
-              <input type="text" id="end-date" class="form-control search-input datepicker" placeholder="Select date" readonly>
+              <input type="text" name="end_date" id="end-date" class="form-control search-input datepicker" placeholder="Select date" readonly>
             </div>
           </div>
           
@@ -54,14 +54,14 @@
           <div class="col-md-2 mb-3 mb-md-0">
             <div class="search-field">
               <label for="guests" class="search-label"><i class="fas fa-user-friends mr-2"></i> No. Of Guests</label>
-              <input type="text" id="guests" class="form-control search-input" placeholder="e.g. 200">
+              <input type="text" name="no_guests" id="guests" class="form-control search-input" placeholder="e.g. 200">
               <!-- Hidden dropdown content would go here -->
             </div>
           </div>
           
           <!-- Search Button -->
           <div class="col-md-1">
-            <button type="submit" class="btn btn-success search-btn btn-block h-100 float-right">
+            <button type="submit" name="search_btn" class="btn btn-success search-btn btn-block h-100 float-right">
                <i class="fas fa-search"></i>
             </button>
           </div>
